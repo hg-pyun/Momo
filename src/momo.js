@@ -11,7 +11,6 @@ app.post('/call', function (request, response, next) {
     console.log(request.body);
 
     // business logic
-
     response.json({'result' : 'success'});
 });
 
