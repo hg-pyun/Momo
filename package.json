@@ -1,0 +1,23 @@
+{
+  "name": "momo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haegul/Momo.git"
+  },
+  "author": "Haegul PYUN",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haegul/Momo/issues"
+  },
+  "homepage": "https://github.com/haegul/Momo#readme",
+  "scripts": {
+    "install": "npm install -g express-generator@4"
+  },
+  "devDependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}
