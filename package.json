@@ -2,7 +2,7 @@
   "name": "momo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "momo.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/haegul/Momo.git"
@@ -14,10 +14,12 @@
   },
   "homepage": "https://github.com/haegul/Momo#readme",
   "scripts": {
-    "install": "npm install -g express-generator@4"
+    "server": "nohup node ./src/momo.js &"
   },
   "devDependencies": {
     "body-parser": "^1.15.2",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "openssl": "^1.1.0",
+    "request": "^2.75.0"
   }
 }
