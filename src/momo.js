@@ -51,6 +51,9 @@ app.post('/hook', function (request, response) {
             else if(/^r\[.+\]/g.test(cmd)){
                 reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionEnjoy.getRandomExpress(cmd));
             }
+            else if(cmd == "food" || cmd == "@밥집"){
+                reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionEnjoy.getFoodExpress());
+            }
             else if(cmd == "contact" || cmd == "ct"){
                 reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionHelp.getContactExpress());
             }

@@ -3,6 +3,7 @@ var helpText =
     "======== Help ======== \n" +
     "@momo - call momo \n" +
     "@r[array] - return one element in array \n" +
+    "@food || @밥집 - return food list \n" +
     "@help || @h - view action list of momo \n" +
     "@contact || @ct - view information of momo's developer \n" +
     "=====================";

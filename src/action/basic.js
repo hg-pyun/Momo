@@ -1,8 +1,11 @@
-var replySet = ["냐앙~", "냐오오옹~", "냥 ~ (//ㅅ//)", "냥? =ටᆼට=", "(ΦωΦ)", "냐옹~(⁎˃ᆺ˂)", "(뒹굴뒹굴) (ㅇㅅㅇ❀)", "(=‘ｘ‘=)", "(๑òᆺó๑)", "∑(ΦдΦlll", "(≧∇≦*)"];
+const emotion = require('./emotion');
 
 module.exports.getBasicExpress = function () {
+    
+    var basicEmotion = emotion.basicSet;
+    
     return [{
         "type": "text",
-        "text": replySet[Math.floor(Math.random() * replySet.length)]
+        "text": basicEmotion[Math.floor(Math.random() * basicEmotion.length)]
     }];
 };
