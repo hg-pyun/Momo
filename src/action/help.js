@@ -12,6 +12,7 @@ var contactText =
     "Momo가 종이를 물어왔습니다. \n" +
     "======== Contact ======== \n" +
     "@email - phg2491@gmail.com \n" +
+    "Special Thanks && QA - Jaewon.Choi \n"+
     "========================";
 
 module.exports.getHelpExpress = function () {
