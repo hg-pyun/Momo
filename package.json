@@ -20,7 +20,7 @@
     "request": "^2.75.0"
   },
   "scripts": {
-    "debug" : "cd src && node momo.js",
-    "server": "cd src && nohup node momo.js &"
+    "debug" : "cd src && suvervisor momo.js",
+    "server": "cd src && forever start momo.js"
   }
 }
