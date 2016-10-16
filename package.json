@@ -13,13 +13,14 @@
     "url": "https://github.com/haegul/Momo/issues"
   },
   "homepage": "https://github.com/haegul/Momo#readme",
-  "scripts": {
-    "server": "nohup node ./src/momo.js &"
-  },
   "devDependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "openssl": "^1.1.0",
     "request": "^2.75.0"
+  },
+  "scripts": {
+    "debug" : "cd src && node momo.js",
+    "server": "cd src && nohup node momo.js &"
   }
 }
