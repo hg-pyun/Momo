@@ -9,6 +9,7 @@ const reply = require('./reply');
 const actionBasic = require('./action/basic');
 const actionHelp = require('./action/help');
 const actionEnjoy = require('./action/enjoy');
+const actionScheduler = require('./action/scheduler');
 
 var app = express();
 
@@ -58,6 +59,42 @@ app.post('/hook', function (request, response) {
             else if(cmd == "contact" || cmd == "ct"){
                 reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionHelp.getContactExpress());
             }
+            else if(/^reserve/g.test(cmd) || /^예약/g.test(cmd)){
+
+                var receiverId = null;
+                var dropCmdMessages = cmd.split('reserve ')[1];
+
+                switch (source.type){
+                    case "user" : receiverId = source.userId; break;
+                    case "group" : receiverId = source.groupId; break;
+                    case "room" : receiverId = source.roomId; break;
+                }
+                
+                if(dropCmdMessages.indexOf('-l') != -1){
+                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionScheduler.getReservedList(receiverId));
+                }
+                else if(dropCmdMessages.indexOf('-r') != -1){
+                    var scheduledId = dropCmdMessages.replace('-r', '').trim();
+                    var removeItemInfo = actionScheduler.removeReservedItem(receiverId, scheduledId);
+                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionScheduler.gerRemoveMessage(removeItemInfo))
+                }
+                else{
+                    var onceFlag = true;
+                    var data = actionScheduler.reserveParser(dropCmdMessages);
+                    
+                    if(dropCmdMessages.indexOf('-once') == -1){
+                        onceFlag = false;
+                    }
+
+                    if(dropCmdMessages.indexOf('-once') == -1){
+                        onceFlag = false;
+                    }
+
+                    actionScheduler.setReserve(config.CHANNEL_ACCESS_TOKEN, receiverId, data.time, data.message, onceFlag);
+                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionScheduler.getReservedMessage(data.time, data.message, !onceFlag))
+                }
+            }
+
         }
     }
 
