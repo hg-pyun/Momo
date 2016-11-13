@@ -1,7 +1,7 @@
 var helpText =
     "Momo가 종이를 물어왔습니다. \n" +
     "======== Help ======== \n" +
-    "@momo - call momo \n" +
+    "@momo : call momo \n" +
     "@r[array] : return one element in array \n" +
     "@food || @밥집 : return food list \n" +
     "@reserve cron, message : reserve schedule \n" +
