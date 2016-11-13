@@ -20,7 +20,6 @@
     "request": "^2.75.0"
   },
   "scripts": {
-    "debug" : "cd src && suvervisor momo.js",
-    "server": "cd src && forever start momo.js"
+    "debug": "cd src && sudo superrvisor momo.js"
   }
 }

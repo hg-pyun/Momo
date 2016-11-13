@@ -1,23 +1,15 @@
-const https = require('https');
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 
-const config = require('./config');
-const reply = require('./reply');
+const config = require('../src/config');
+const reply = require('../src/reply');
 
-const actionBasic = require('./action/basic');
-const actionHelp = require('./action/help');
-const actionEnjoy = require('./action/enjoy');
+const actionBasic = require('../src/action/basic');
+const actionHelp = require('../src/action/help');
+const actionEnjoy = require('../src/action/enjoy');
 
 var app = express();
-
-// set SSL
-var https_options = {
-    ca: fs.readFileSync(config.SSL.CA_PATH, 'utf8'),
-    key: fs.readFileSync(config.SSL.KEY_PATH, 'utf8'),
-    cert: fs.readFileSync(config.SSL.CERT_PATH, 'utf8')
-};
 
 app.use(bodyParser.json());
 
@@ -66,6 +58,6 @@ app.post('/hook', function (request, response) {
 //
 // app.use(express.static(__dirname + '/img'));
 
-https.createServer(https_options, app).listen(443, function(){
-    console.log("Momo Server is Running");
+app.listen(9000, function(){
+    console.log("Momo Server is Running : http://127.0.0.1:9000");
 });
