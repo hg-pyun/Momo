@@ -2,10 +2,14 @@ var helpText =
     "Momo가 종이를 물어왔습니다. \n" +
     "======== Help ======== \n" +
     "@momo - call momo \n" +
-    "@r[array] - return one element in array \n" +
-    "@food || @밥집 - return food list \n" +
-    "@help || @h - view action list of momo \n" +
-    "@contact || @ct - view information of momo's developer \n" +
+    "@r[array] : return one element in array \n" +
+    "@food || @밥집 : return food list \n" +
+    "@reserve cron, message : reserve schedule \n" +
+    "@reserve cron, message -once : reserve schedule onetime\n" +
+    "@reserve -l : show schedule \n" +
+    "@reserve -r id : remove schedule \n" +
+    "@help || @h : view action list of momo \n" +
+    "@contact || @ct : view information of momo's developer \n" +
     "=====================";
 
 var contactText =

@@ -43,7 +43,7 @@ module.exports.getReservedList = function (receiverId) {
     
     var basicEmotion = emotion.basicSet;
     var count = 0;
-    var message = "Momo가 Reservation List를 물고왔습니다. \n" +
+    var message = " [Momo가 Reservation List를 물고왔습니다.] \n" +
         "=====================";
 
     for(var i=0; i<reservationQueue.length; i++) {
@@ -60,7 +60,7 @@ module.exports.getReservedList = function (receiverId) {
 
     return [{
         "type": "text",
-        "text": (count > 0) ? basicEmotion[Math.floor(Math.random() * basicEmotion.length)] + message : "Reservation List is Empty."
+        "text": (count > 0) ? basicEmotion[Math.floor(Math.random() * basicEmotion.length)] + message : "[Momo가 쪽지를 물고왔습니다.] \nReservation List is Empty."
     }];
 };
 
@@ -81,7 +81,7 @@ module.exports.getReservedMessage = function (time, message, once) {
 module.exports.gerRemoveMessage = function (removeMessageInfo) {
 
     var basicEmotion = emotion.basicSet;
-    var message = basicEmotion[Math.floor(Math.random() * basicEmotion.length)]+ "\nMomo가 Id값을 못찾고 있습니다.";
+    var message = basicEmotion[Math.floor(Math.random() * basicEmotion.length)]+ "\n[Momo가 Id값을 못찾고 있습니다.]";
 
     if(removeMessageInfo != null){
         message = "[Remove Reservation] " + basicEmotion[Math.floor(Math.random() * basicEmotion.length)]+
@@ -119,6 +119,6 @@ function removeReservedItem (receiverId, scheduledId) {
 function makePainMessageTemplate(message) {
     return [{
         "type":"text",
-        "text": "[Reserved Message]\n"+message
+        "text": "[Momo가 쪽지를 물고왔습니다.]\n"+"[Reserved] "+ message
     }]
 }
