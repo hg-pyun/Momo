@@ -4,7 +4,7 @@ const push = require('../push');
 const emotion = require('./emotion');
 
 var reservationQueue = [];
-var scheduledId = -1;
+var scheduledId = 0;
 module.exports.reserveParser = function (message) {
     
     console.log('[scheduler]', message);
@@ -30,13 +30,15 @@ module.exports.setReserve = function (channelAccessToken, receiverId, time, mess
     });
 
     reservationQueue.push({
-        scheduledId : (++scheduledId).toString(),
+        scheduledId : (scheduledId).toString(),
         receiverId : receiverId,
         time : time,
         message : message,
         once : once,
         job : job
     });
+
+    scheduledId++;
 };
 
 module.exports.getReservedList = function (receiverId) {
