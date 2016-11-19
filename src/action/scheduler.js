@@ -88,7 +88,7 @@ module.exports.gerRemoveMessage = function (removeMessageInfo) {
             "\nId : " + removeMessageInfo.scheduledId +
             "\n예약 시간 : " + removeMessageInfo.time +
             "\n메세지 : " + removeMessageInfo.message +
-            "\n반복 : " + removeMessageInfo.once
+            "\n반복 : " + !removeMessageInfo.once
     }
 
     return [{
